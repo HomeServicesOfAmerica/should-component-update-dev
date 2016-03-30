@@ -2,6 +2,7 @@
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var shallowCompare = _interopDefault(require('react-addons-shallow-compare'));
 var diff = _interopDefault(require('deep-diff'));
 
 var babelHelpers = {};
@@ -78,21 +79,21 @@ var STATE_GROUP = 'state';
 var PROPS_GROUP = 'props';
 
 function shouldComponentUpdateDev(nextProps, nextState) {
-  var shouldUpdateProps = !shallowEqual(this.props, nextProps);
-  var shouldUpdateState = !shallowEqual(this.state, nextState);
-  var shouldUpdate = shouldUpdateProps || shouldUpdateState;
 
-  if (process.env.NODE_ENV !== 'development') return shouldUpdate;
-  if (!shouldUpdate) return shouldUpdate;
+  if (process.env.NODE_ENV !== 'development') {
+    return shallowCompare(this, nextProps, nextState);
+  }
 
   var displayName = this.constructor.name;
 
   console.group(displayName);
   console.group(PROPS_GROUP);
+  var shouldUpdateProps = !shallowEqual(this.props, nextProps);
   console.log('shouldUpdateProps: ' + shouldUpdateProps);
   console.log('diff: ' + diff(this.props, nextProps));
   console.groupEnd(PROPS_GROUP);
   console.group(STATE_GROUP);
+  var shouldUpdateState = !shallowEqual(this.state, nextState);
   console.log('shouldUpdateState: ' + shouldUpdateState);
   console.log('diff: ' + diff(this.state, nextState));
   console.groupEnd(STATE_GROUP);
