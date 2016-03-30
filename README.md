@@ -4,6 +4,12 @@
 
 ![Example](http://i.imgur.com/vTyhTxf.png)
 
+Only logs out the reason if `shallowCompare` returns `false` (meaning `shouldComponentUpdate` will likely return `true`).
+Doesn't do any logging if `process.env.NODE_ENV !== 'production'`.
+
+This can be really useful if you're still getting a lot of renders even with `pure-render-mixin` or `shallowCompare`.
+
+
 ## Install
 
 ```
