@@ -22,13 +22,23 @@ $ npm install --save-dev should-component-update-dev
 Just import the package and bind it to your React component
 
 ```js
-import shouldComponentUpdate from 'should-component-update-dev';
+import shouldComponentUpdateDev from 'should-component-update-dev';
 
 class SomeReactComponent extends React {
  constructor(props) {
   super(props);
-  this.shouldComponentUpdate = shouldComponentUpdate.bind(this);
+  this.shouldComponentUpdateDev = shouldComponentUpdate.bind(this);
  }
+}
+```
+
+If you don't want it to completely overwrite your `shouldComponentUpdate` method then you
+can just call it from within your existing method.
+
+```js
+shouldComponentUpdate(nextProps, nextState) {
+  /* Your stuff here */
+  shouldComponentUpdateDev.call(this, nextProps, nextState);
 }
 ```
 
