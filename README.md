@@ -39,6 +39,7 @@ can just call it from within your existing method.
 shouldComponentUpdate(nextProps, nextState) {
   /* Your stuff here */
   shouldComponentUpdateDev.call(this, nextProps, nextState);
+  /* Your other stuff here, or just return the above return value */
 }
 ```
 
