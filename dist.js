@@ -98,7 +98,7 @@ function shouldComponentUpdateDev(nextProps, nextState) {
   console.log('diff: ' + diff(this.state, nextState));
   console.groupEnd(STATE_GROUP);
   console.groupEnd(displayName);
-  return shouldUpdate;
+  return shouldUpdateProps || shouldUpdateState;
 }
 
 module.exports = shouldComponentUpdateDev;

@@ -1,6 +1,6 @@
 {
   "name": "should-component-update-dev",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A React.js development tool to know why shouldComponentUpdate returned true",
   "main": "dist.js",
   "scripts": {

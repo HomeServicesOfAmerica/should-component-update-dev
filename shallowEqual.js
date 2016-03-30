@@ -39,15 +39,20 @@ export default function shallowEqual(objA, objB) {
   }
 
   if (typeof objA !== 'object') {
-    console.log(`current value is a ${typeof objA} and an object is required.`)
+    console.log(
+      `%c current value is a ${typeof objA} and an object is required.`,
+      'color: red');
     return false;
   }
   if (objA === null) {
-    console.log(`current value is null`)
+    console.log(`%c current value is null`, 'color: red');
     return false;
   }
   if (typeof objB !== 'object') {
-    console.log(`next value is a ${typeof objB} and an object is required.`)
+    console.log(
+      `%c next value is a ${typeof objB} and an object is required.`,
+      'color: red'
+    )
     return false;
   }
   if (objB === null) {
@@ -60,19 +65,28 @@ export default function shallowEqual(objA, objB) {
   const keysB = Object.keys(objB);
 
   if (keysA.length !== keysB.length) {
-    console.log('Object.keys().length mismatch between current and next value');
+    console.log(
+      '%c Object.keys().length mismatch between current and next value',
+      'color: red'
+    );
     return false;
   }
 
   // Test for A's keys different from B.
   for (let i = 0; i < keysA.length; i++) {
     if (!hasOwnProperty.call(objB, keysA[i])) {
-      console.log(`Next value does not have key '${keysA[i]}'`);
+      console.log(
+        `%c Next value does not have key '${keysA[i]}'`,
+        'color: red'
+      );
       return false
     }
 
     if (!is(objA[keysA[i]], objB[keysA[i]])) {
-      console.log(`Object.is returned false for ${keysA[i]}`);
+      console.log(
+        `%c Object.is returned false for ${keysA[i]}`,
+        'color: red'
+      );
       return false;
     }
   }
