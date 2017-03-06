@@ -19,13 +19,13 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.6.5",
-    "babel-preset-es2015-rollup": "^1.1.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "chai": "^3.5.0",
-    "mocha": "^2.4.5",
-    "rollup": "^0.25.7"
+    "mocha": "^3.2.0",
+    "rollup": "^0.41.4"
   },
   "dependencies": {
     "deep-diff": "^0.3.3",
-    "react-addons-shallow-compare": "^0.14.8"
+    "react-addons-shallow-compare": "^15.4.2"
   }
 }
