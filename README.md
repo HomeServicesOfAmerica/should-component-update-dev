@@ -1,5 +1,7 @@
 # should-component-update-dev
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ConciergeAuctions/should-component-update-dev.svg)](https://greenkeeper.io/)
+
 > Logs out the reason why `shouldComponentUpdate` is returning true
 
 ![Example](http://i.imgur.com/vTyhTxf.png)
